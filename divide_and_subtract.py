@@ -1,6 +1,9 @@
 #!/usr/bin/python
 
-for i in range(150):
+d = 8
+t = 'E'
+
+for _ in range(150):
 
 	# GENERAL
 	#p = int(raw_input('Page :            '))
@@ -9,16 +12,10 @@ for i in range(150):
 
 	# SPECIFIC
 	p = int(raw_input('Page : '))
-	d = 8
-	t = 'E'
-
-	if((t == 'E') or (t == 'e')):
-		if(p % 2 == 0):
-			print((p/2) + d)
-		else:
-			print(((p - 1)/2) + d)
-	elif ((t == 'O') or (t == 'o')):
-		if(p % 2 == 0):
-			print((p/2) + d)
-		else:
-			print(((p + 1)/2) + d)
+	if (t in ['E', 'e'] and (p % 2 == 0)
+	    or t != 'E' and t != 'e' and t in ['O', 'o'] and (p % 2 == 0)):
+		print((p/2) + d)
+	elif t in ['E', 'e']:
+		print(((p - 1)/2) + d)
+	elif t in ['O', 'o']:
+		print(((p + 1)/2) + d)

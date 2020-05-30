@@ -7,23 +7,23 @@ f = open('info_bm.txt','a')
 
 i = 1
 test = 'OK'
-while (True):
+while True:
 	print(str(i) + ') ')
-	
+
 	test = raw_input('TITLE: ')
-	if((test == 'END') or (test == 'ENDC')):
+	if test in ['END', 'ENDC']:
 		break
-	
+
 	if(i != 1):
 		f.write('|')
 
 	f.write(test.decode('utf-8').encode('ascii', 'xmlcharrefreplace') + '|')
-	
-	if((q == 'y') or (q == 'Y')):
+
+	if q in ['y', 'Y']:
 		f.write('1|')
 	else:
 		f.write(raw_input('LEVEL: ') + '|')
-	
+
 	f.write(str(int(raw_input('PAGE:  ')) + d))
 	i += 1
 
